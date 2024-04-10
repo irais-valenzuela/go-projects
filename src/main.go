@@ -40,20 +40,29 @@ func main() {
 
 	// for loops
 
-	for i := 0; i <= 5; i++ {
-		fmt.Println(i)
-	}
+	// for i := 0; i <= 5; i++ {
+	// 	fmt.Println(i)
+	// }
 
-	for i := range 3 {
-		fmt.Println("range", i)
+	// for i := range 3 {
+	// 	fmt.Println("range", i)
+	// }
+
+	// // if else chains
+	// if num := 9; num < 0 {
+	// 	fmt.Println(num, "number is negative")
+	// } else if num < 10 {
+	// 	fmt.Println(num, "number has 1 digit")
+	// } else {
+	// 	fmt.Println(num, "number has multiple digits")
+	// }
+
+  // all three lessons in one 
+	const two = 2.0
+
+	for i := 0; i <= 5; i++ {
+		if float64(i)/two == 2.0 {
+			fmt.Println("should be 4", i)
+		}
 	}
- 
-  // if else chains
-  if num := 9; num < 0 {
-    fmt.Println(num, "number is negative")
-  } else if num < 10 {
-    fmt.Println(num, "number has 1 digit")
-  } else {
-    fmt.Println(num, "number has multiple digits")
-  }
 }
