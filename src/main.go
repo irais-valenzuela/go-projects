@@ -47,4 +47,13 @@ func main() {
 	for i := range 3 {
 		fmt.Println("range", i)
 	}
+ 
+  // if else chains
+  if num := 9; num < 0 {
+    fmt.Println(num, "number is negative")
+  } else if num < 10 {
+    fmt.Println(num, "number has 1 digit")
+  } else {
+    fmt.Println(num, "number has multiple digits")
+  }
 }
