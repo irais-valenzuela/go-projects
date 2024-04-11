@@ -57,12 +57,31 @@ func main() {
 	// 	fmt.Println(num, "number has multiple digits")
 	// }
 
-  // all three lessons in one 
+	// all three lessons in one
 	const two = 2.0
 
-	for i := 0; i <= 5; i++ {
-		if float64(i)/two == 2.0 {
-			fmt.Println("should be 4", i)
-		}
+	// for i := 0; i <= 5; i++ {
+	// 	if float64(i)/two == 2.0 {
+	// 		fmt.Println("should be 4", i)
+	// 	}
+	// }
+  
+	const day = 4
+
+	switch day {
+	case 1:
+		fmt.Println("Today is Monday")
+	case 2:
+		fmt.Println("Today is Tuesday")
+	case 3:
+		fmt.Println("Today is Wednesday")
+	case 4:
+		fmt.Println("Today is Thursday")
+	case 5:
+		fmt.Println("Today is Friday")
+	case 6:
+		fmt.Println("Today is Saturday")
+	default:
+		fmt.Println("Today is Sunday")
 	}
 }
