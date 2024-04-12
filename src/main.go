@@ -99,5 +99,9 @@ func main() {
   }
 
   fmt.Println("after assigning elems", array)
+
+  array2:= [3]int{1, 2, 3}
+
+  fmt.Println("array2", array2)
     
 }
