@@ -3,10 +3,10 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math"
 	"os"
 	"strconv"
 	"strings"
-	"math"
 )
 
 func main() {
@@ -133,13 +133,28 @@ func main() {
 	} else {
 		fmt.Println("Value of number: ", aFloat)
 	}
-   
 
-	// math.round rounds to nearest even integer, the output will be the number that is exactly halfway between 
+	// math.round rounds to nearest even integer, the output will be the number that is exactly halfway between
 	// the two integers
 
 	// math pkg
 	fmt.Println("4?", math.Round(4.5))
 	fmt.Println("8?", math.Round(8.5))
 	fmt.Println("10?", math.Round(9.5))
+
+	i1, i2, i3 := 12, 45, 68
+
+	intSum := i1 + i2 + i3
+
+	fmt.Println("intSum", intSum)
+
+	f1, f2, f3 := 23.5, 65.1, 76.3
+
+	floatSum := f1 + f2 + f3
+
+	fmt.Println("floatSum", floatSum)
+	// safest way in go of rounding a fractional number and holding on to digits after the decimal point
+	floatSum = math.Round(floatSum*100) / 100
+
+	fmt.Println("This sum is now: ", floatSum)
 }
