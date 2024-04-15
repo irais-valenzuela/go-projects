@@ -6,6 +6,7 @@ import (
 	"os"
 	"strconv"
 	"strings"
+	"math"
 )
 
 func main() {
@@ -126,11 +127,19 @@ func main() {
 
 	// converting str to int
 	aFloat, err := strconv.ParseFloat(strings.TrimSpace(numInput), 64)
-	
+
 	if err != nil {
 		fmt.Println(err)
 	} else {
 		fmt.Println("Value of number: ", aFloat)
 	}
+   
 
+	// math.round rounds to nearest even integer, the output will be the number that is exactly halfway between 
+	// the two integers
+
+	// math pkg
+	fmt.Println("4?", math.Round(4.5))
+	fmt.Println("8?", math.Round(8.5))
+	fmt.Println("10?", math.Round(9.5))
 }
