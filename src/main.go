@@ -1,122 +1,136 @@
 package main
 
-import(
-  "fmt"
-  "bufio"
-  "os"
+import (
+	"bufio"
+	"fmt"
+	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
 
 	// printing
 
-// 	fmt.Println("Hello World!")
-// 	fmt.Println("Go" + "lang")
-// 	fmt.Println("1 + 4 = ", 1 + 4)
-// 	fmt.Println("false", true && false)
-// 	fmt.Println("true", true || false)
-// 	fmt.Println(!true)
+	// 	fmt.Println("Hello World!")
+	// 	fmt.Println("Go" + "lang")
+	// 	fmt.Println("1 + 4 = ", 1 + 4)
+	// 	fmt.Println("false", true && false)
+	// 	fmt.Println("true", true || false)
+	// 	fmt.Println(!true)
 
-// 	// variable declaration + shorthand declaration and initialization
+	// 	// variable declaration + shorthand declaration and initialization
 
-// 	var num1 = 1
-// 	fmt.Println("1", num1)
+	// 	var num1 = 1
+	// 	fmt.Println("1", num1)
 
-// 	var num2, num3 int = 2, 3
-// 	fmt.Println("2 3 === ", num2, num3)
+	// 	var num2, num3 int = 2, 3
+	// 	fmt.Println("2 3 === ", num2, num3)
 
-// 	var zero int
-// 	fmt.Println("0", zero)
+	// 	var zero int
+	// 	fmt.Println("0", zero)
 
-// 	var false bool
-// 	fmt.Println("false?", false)
-// 	fmt.Printf("This variable is a %T\n ", false)
+	// 	var false bool
+	// 	fmt.Println("false?", false)
+	// 	fmt.Printf("This variable is a %T\n ", false)
 
-// 	var emptyString string = "This is go!"
-// 	fmt.Println("0", len(emptyString))
-// 	fmt.Printf("This variable is a %T\n" , emptyString)
+	// 	var emptyString string = "This is go!"
+	// 	fmt.Println("0", len(emptyString))
+	// 	fmt.Printf("This variable is a %T\n" , emptyString)
 
-// 	lastVar := "last variable"
+	// 	lastVar := "last variable"
 
-// 	fmt.Println(lastVar)
+	// 	fmt.Println(lastVar)
 
-// 	lastVar = "new value to prove a point lol"
+	// 	lastVar = "new value to prove a point lol"
 
-// 	fmt.Println(lastVar)
+	// 	fmt.Println(lastVar)
 
-// 	// for loops
+	// 	// for loops
 
-// 	for i := 0; i <= 5; i++ {
-// 		fmt.Println(i)
-// 	}
+	// 	for i := 0; i <= 5; i++ {
+	// 		fmt.Println(i)
+	// 	}
 
-// 	for i := range 3 {
-// 		fmt.Println("range", i)
-// 	}
+	// 	for i := range 3 {
+	// 		fmt.Println("range", i)
+	// 	}
 
-// 	// if else chains
-// 	if num := 9; num < 0 {
-// 		fmt.Println(num, "number is negative")
-// 	} else if num < 10 {
-// 		fmt.Println(num, "number has 1 digit")
-// 	} else {
-// 		fmt.Println(num, "number has multiple digits")
-// 	}
+	// 	// if else chains
+	// 	if num := 9; num < 0 {
+	// 		fmt.Println(num, "number is negative")
+	// 	} else if num < 10 {
+	// 		fmt.Println(num, "number has 1 digit")
+	// 	} else {
+	// 		fmt.Println(num, "number has multiple digits")
+	// 	}
 
-// 	// all three lessons in one
-// 	const two = 2.0
+	// 	// all three lessons in one
+	// 	const two = 2.0
 
-// 	for i := 0; i <= 5; i++ {
-// 		if float64(i)/two == 2.0 {
-// 			fmt.Println("should be 4", i)
-// 		}
-// 	}
+	// 	for i := 0; i <= 5; i++ {
+	// 		if float64(i)/two == 2.0 {
+	// 			fmt.Println("should be 4", i)
+	// 		}
+	// 	}
 
-//   // switches
-// 	const day = 4
+	//   // switches
+	// 	const day = 4
 
-// 	switch day {
-// 	case 1:
-// 		fmt.Println("Today is Monday")
-// 	case 2:
-// 		fmt.Println("Today is Tuesday")
-// 	case 3:
-// 		fmt.Println("Today is Wednesday")
-// 	case 4:
-// 		fmt.Println("Today is Thursday")
-// 	case 5:
-// 		fmt.Println("Today is Friday")
-// 	case 6:
-// 		fmt.Println("Today is Saturday")
-// 	default:
-// 		fmt.Println("Today is Sunday")
-// 	}
+	// 	switch day {
+	// 	case 1:
+	// 		fmt.Println("Today is Monday")
+	// 	case 2:
+	// 		fmt.Println("Today is Tuesday")
+	// 	case 3:
+	// 		fmt.Println("Today is Wednesday")
+	// 	case 4:
+	// 		fmt.Println("Today is Thursday")
+	// 	case 5:
+	// 		fmt.Println("Today is Friday")
+	// 	case 6:
+	// 		fmt.Println("Today is Saturday")
+	// 	default:
+	// 		fmt.Println("Today is Sunday")
+	// 	}
 
-//   // arrays
-//   var array [6]int
+	//   // arrays
+	//   var array [6]int
 
-//   fmt.Println("initial array", array)
+	//   fmt.Println("initial array", array)
 
-//   count:= 1
+	//   count:= 1
 
-//   for i:= 0; i < len(array); i++ {
-//     array[i] = count
-//     count += 1
-//   }
+	//   for i:= 0; i < len(array); i++ {
+	//     array[i] = count
+	//     count += 1
+	//   }
 
-//   fmt.Println("after assigning elems", array)
+	//   fmt.Println("after assigning elems", array)
 
-//   array2:= [3]int{1, 2, 3}
+	//   array2:= [3]int{1, 2, 3}
 
-//   fmt.Println("array2", array2)
+	//   fmt.Println("array2", array2)
 
-  // printing input from command line
+	// printing input from command line
 
-  reader := bufio.NewReader(os.Stdin) 
-  fmt.Print("Enter text ")
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter text ")
 
-  input, _ := reader.ReadString('\n')
+	input, _ := reader.ReadString('\n')
 
-  fmt.Println("You entered:", input)
-    
+	fmt.Println("You entered:", input)
+
+	fmt.Print("Enter a number: ")
+	numInput, _ := reader.ReadString('\n')
+
+	// converting str to int
+	aFloat, err := strconv.ParseFloat(strings.TrimSpace(numInput), 64)
+	
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		fmt.Println("Value of number: ", aFloat)
+	}
+
 }
