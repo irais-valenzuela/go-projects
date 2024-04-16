@@ -158,8 +158,8 @@ func main() {
 
 	fmt.Println("This sum is now: ", floatSum)
 
-	var arg1 string = "45.1"
-	var arg2 string = "2.00"
+	var arg1 string = "45.1  "
+	var arg2 string = "  2.00  "
 
 	fmt.Println("Result should be 47.1", calculate(arg1, arg2))
 }
@@ -169,13 +169,13 @@ func calculate(value1 string, value2 string) float64 {
 	// Your code goes here.
 
 	// Convert the first string to a float64
-	newVal1, err := strconv.ParseFloat(value1, 64)
+	newVal1, err := strconv.ParseFloat(strings.TrimSpace(value1), 64)
 	if err != nil {
 		fmt.Println(err)
 	}
 
 	// Convert the second string to a float64
-	newVal2, err := strconv.ParseFloat(value2, 64)
+	newVal2, err := strconv.ParseFloat(strings.TrimSpace(value2), 64)
 
 	if err != nil {
 		fmt.Println(err)
