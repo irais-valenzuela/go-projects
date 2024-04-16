@@ -157,4 +157,30 @@ func main() {
 	floatSum = math.Round(floatSum*100) / 100
 
 	fmt.Println("This sum is now: ", floatSum)
+    
+	var arg1 string = "45.1"
+	var arg2 string = "2.00"
+
+	fmt.Println("Result should be 47.1", calculate(arg1, arg2))
+}
+
+// calculate() returns the sum of the two parameters
+func calculate(value1 string, value2 string) float64 {
+	// Your code goes here.
+	var result float64
+
+	// Convert the first string to a float64
+	newVal1, err := strconv.ParseFloat(value1, 64)
+
+	// Convert the second string to a float64
+	newVal2, err := strconv.ParseFloat(value2, 64)
+
+	if err != nil {
+		fmt.Println(err)
+	} else {
+		result = newVal1 + newVal2
+	}
+
+	// Calculate and return the result
+	return result
 }
