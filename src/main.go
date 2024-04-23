@@ -195,8 +195,8 @@ product of all positive integers less than or equal to that number.
 For example, the factorial of 5 (denoted as 5!) is calculated as 5 x 4 x 3 x 2 x 1, which equals 120.
 */
 
-func factorial() float64 {
-	var result float64 = 1
+func factorial() int {
+	var result int = 1
 	// assign the reader object to reader variable
 	// reading data from input source like the terminal or command line
 	reader := bufio.NewReader(os.Stdin)
@@ -204,12 +204,12 @@ func factorial() float64 {
 	fmt.Print("Enter a number: ")
 	numInput, _ := reader.ReadString('\n')
 
-	aFloat, err := strconv.ParseFloat(strings.TrimSpace(numInput), 64)
+	parsedInt, err := strconv.Atoi(strings.TrimSpace(numInput))
 
 	if err != nil {
 		fmt.Println(err)
 	} else {
-		for i := aFloat; i > 0; i-- {
+		for i := parsedInt; i > 0; i-- {
 			result *= i
 		}
 	}
