@@ -3,7 +3,6 @@ package main
 import (
 	"bufio"
 	"fmt"
-	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -115,72 +114,107 @@ func main() {
 
 	// printing input from command line
 
-	reader := bufio.NewReader(os.Stdin)
-	fmt.Print("Enter text ")
+	// reader := bufio.NewReader(os.Stdin)
+	// fmt.Print("Enter text ")
 
-	input, _ := reader.ReadString('\n')
+	// input, _ := reader.ReadString('\n')
 
-	fmt.Println("You entered:", input)
+	// fmt.Println("You entered:", input)
 
-	fmt.Print("Enter a number: ")
-	numInput, _ := reader.ReadString('\n')
+	// fmt.Print("Enter a number: ")
+	// numInput, _ := reader.ReadString('\n')
 
-	// converting str to int
-	aFloat, err := strconv.ParseFloat(strings.TrimSpace(numInput), 64)
+	// // converting str to int
+	// aFloat, err := strconv.ParseFloat(strings.TrimSpace(numInput), 64)
 
-	if err != nil {
-		fmt.Println(err)
-	} else {
-		fmt.Println("Value of number: ", aFloat)
-	}
+	// if err != nil {
+	// 	fmt.Println(err)
+	// } else {
+	// 	fmt.Println("Value of number: ", aFloat)
+	// }
 
 	// math.round rounds to nearest even integer, the output will be the number that is exactly halfway between
 	// the two integers
 
 	// math pkg
-	fmt.Println("4?", math.Round(4.5))
-	fmt.Println("8?", math.Round(8.5))
-	fmt.Println("10?", math.Round(9.5))
+	// fmt.Println("4?", math.Round(4.5))
+	// fmt.Println("8?", math.Round(8.5))
+	// fmt.Println("10?", math.Round(9.5))
 
-	i1, i2, i3 := 12, 45, 68
+	// i1, i2, i3 := 12, 45, 68
 
-	intSum := i1 + i2 + i3
+	// intSum := i1 + i2 + i3
 
-	fmt.Println("intSum", intSum)
+	// fmt.Println("intSum", intSum)
 
-	f1, f2, f3 := 23.5, 65.1, 76.3
+	// f1, f2, f3 := 23.5, 65.1, 76.3
 
-	floatSum := f1 + f2 + f3
+	// floatSum := f1 + f2 + f3
 
-	fmt.Println("floatSum", floatSum)
-	// safest way in go of rounding a fractional number and holding on to digits after the decimal point
-	floatSum = math.Round(floatSum*100) / 100
+	// fmt.Println("floatSum", floatSum)
+	// // safest way in go of rounding a fractional number and holding on to digits after the decimal point
+	// floatSum = math.Round(floatSum*100) / 100
 
-	fmt.Println("This sum is now: ", floatSum)
+	// fmt.Println("This sum is now: ", floatSum)
 
-	var arg1 string = "45.1  "
-	var arg2 string = "  2.00  "
+	// var arg1 string = "45.1  "
+	// var arg2 string = "  2.00  "
 
-	fmt.Println("Result should be 47.1", calculate(arg1, arg2))
+	// fmt.Println("Result should be 47.1", calculate(arg1, arg2))
+	factorial()
+
 }
 
 // calculate() returns the sum of the two parameters
-func calculate(value1 string, value2 string) float64 {
-	// Your code goes here.
+// func calculate(value1 string, value2 string) float64 {
+// 	// Your code goes here.
 
-	// Convert the first string to a float64
-	newVal1, err := strconv.ParseFloat(strings.TrimSpace(value1), 64)
+// 	// Convert the first string to a float64
+// 	newVal1, err := strconv.ParseFloat(strings.TrimSpace(value1), 64)
+// 	if err != nil {
+// 		fmt.Println(err)
+// 	}
+
+// 	// Convert the second string to a float64
+// 	newVal2, err := strconv.ParseFloat(strings.TrimSpace(value2), 64)
+
+// 	if err != nil {
+// 		fmt.Println(err)
+// 	}
+
+// 	// Calculate and return the result
+// 	return newVal1 + newVal2
+
+// }
+
+/*
+
+Write a program in Go that calculates the factorial of a non-negative integer entered by the user. The factorial of a number is the
+product of all positive integers less than or equal to that number.
+
+For example, the factorial of 5 (denoted as 5!) is calculated as 5 x 4 x 3 x 2 x 1, which equals 120.
+*/
+
+func factorial() float64 {
+	var result float64 = 1
+	// assign the reader object to reader variable
+	// reading data from input source like the terminal or command line
+	reader := bufio.NewReader(os.Stdin)
+
+	fmt.Print("Enter a number: ")
+	numInput, _ := reader.ReadString('\n')
+
+	aFloat, err := strconv.ParseFloat(strings.TrimSpace(numInput), 64)
+
 	if err != nil {
 		fmt.Println(err)
+	} else {
+		for i := aFloat; i > 0; i-- {
+			result *= i
+		}
 	}
 
-	// Convert the second string to a float64
-	newVal2, err := strconv.ParseFloat(strings.TrimSpace(value2), 64)
+	fmt.Println("Result: ", result)
 
-	if err != nil {
-		fmt.Println(err)
-	}
-
-	// Calculate and return the result
-	return newVal1 + newVal2
+	return result
 }
