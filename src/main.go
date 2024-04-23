@@ -202,6 +202,7 @@ func main() {
 
 	ages["Dylan"] = 25
 	ages["Chris"] = 27
+	ages["James"] = 28
 
 	fmt.Println("ages map", ages)
 
@@ -223,6 +224,14 @@ func main() {
 	//4 
 	delete(ages, "Chris")
 	fmt.Println("deleted", ages)
+
+	//5 
+	fmt.Println("2?", len(ages))
+
+	//6 
+	clear(ages)
+
+	fmt.Println("should be empty", ages)
 
 }
 
