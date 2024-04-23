@@ -210,6 +210,8 @@ func main() {
 	fmt.Println("Dylan is", ages["Dylan"], "years old.")
 	fmt.Println("Should print 0 since key doesn't exist", ages["Irais"])
 
+    // 3
+
 	_, prs := ages["Dylan"]
 
 	if prs {
@@ -217,6 +219,10 @@ func main() {
 	} else {
 	  fmt.Println("Doesn't Exist")
 	}
+
+	//4 
+	delete(ages, "Chris")
+	fmt.Println("deleted", ages)
 
 }
 
