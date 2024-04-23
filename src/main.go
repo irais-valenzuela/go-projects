@@ -164,25 +164,70 @@ func main() {
 	// factorial()
 
 	// in brackets put the length of array, then the types of values, then finally the elements
-	var array = [14]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}
+	// var array = [14]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}
 
-	fmt.Println(sumOfEvenArray(array))
+	// fmt.Println(sumOfEvenArray(array))
+
+	/*
+
+		1. **Create a Map and Add Key-Value Pairs:**
+		   Initialize an empty map called `ages` where the keys are names (strings) and the values are ages (integers). Add a few key-value pairs to the map and print the map.
+
+		2. **Retrieve Values from a Map:**
+		   Use the `ages` map from the previous problem. Retrieve and print the age of a specific person (key) from the map.
+
+		3. **Check if a Key Exists:**
+		   Use the `ages` map again. Check if a specific name exists as a key in the map. Print "Exists" if the name is found and "Doesn't Exist" otherwise.
+
+		4. **Remove a Key-Value Pair:**
+		   Use the `ages` map. Remove a specific key-value pair from the map and print the updated map.
+
+		5. **Count the Number of Key-Value Pairs:**
+		   Use the `ages` map. Count and print the number of key-value pairs in the map using the `len` function.
+
+		6. **Clear a Map:**
+		   Use the `ages` map. Clear all key-value pairs from the map and print the map to confirm it's empty.
+
+		7. **Declare and Initialize a Map in One Line:**
+		   Declare and initialize a new map called `grades` in a single line where the keys are subjects (strings) and the values are grades (floats). Print the map.
+
+		8. **Check Map Equality:**
+		   Create two maps `m1` and `m2` with the same key-value pairs. Use the `maps.Equal` function to check if `m1` is equal to `m2` and print the result.
+
+	*/
+
+	// 1
+
+	ages := make(map[string]int)
+
+	ages["Dylan"] = 25
+	ages["Chris"] = 27
+
+	fmt.Println("ages map", ages)
+
+	// 2
+
+	fmt.Println("Dylan is", ages["Dylan"], "years old.")
 
 }
+
+// **ALGO 1**
 
 /*
   Write a program that takes an array of integers as input and calculates the sum of all the even numbers in the array.
 */
 
-func sumOfEvenArray(numsArray [14]int) int {
-	result := 0
-	for i := 0; i < len(numsArray); i++ {
-		if numsArray[i]%2 == 0 {
-			result += numsArray[i]
-		}
-	}
-	return result
-}
+// func sumOfEvenArray(numsArray [14]int) int {
+// 	result := 0
+// 	for i := 0; i < len(numsArray); i++ {
+// 		if numsArray[i]%2 == 0 {
+// 			result += numsArray[i]
+// 		}
+// 	}
+// 	return result
+// }
+
+// **ALGO 2**
 
 // calculate() returns the sum of the two parameters
 // func calculate(value1 string, value2 string) float64 {
@@ -205,6 +250,8 @@ func sumOfEvenArray(numsArray [14]int) int {
 // 	return newVal1 + newVal2
 
 // }
+
+// **ALGO 3**
 
 /*
 
