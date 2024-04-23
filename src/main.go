@@ -1,11 +1,11 @@
 package main
 
 import (
-	"bufio"
+	// "bufio"
 	"fmt"
-	"os"
-	"strconv"
-	"strings"
+	// "os"
+	// "strconv"
+	// "strings"
 )
 
 func main() {
@@ -161,8 +161,27 @@ func main() {
 	// var arg2 string = "  2.00  "
 
 	// fmt.Println("Result should be 47.1", calculate(arg1, arg2))
-	factorial()
+	// factorial()
 
+	// in brackets put the length of array, then the types of values, then finally the elements
+	var array = [14]int{1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14}
+
+	fmt.Println(sumOfEvenArray(array))
+
+}
+
+/*
+  Write a program that takes an array of integers as input and calculates the sum of all the even numbers in the array.
+*/
+
+func sumOfEvenArray(numsArray [14]int) int {
+	result := 0
+	for i := 0; i < len(numsArray); i++ {
+		if numsArray[i]%2 == 0 {
+			result += numsArray[i]
+		}
+	}
+	return result
 }
 
 // calculate() returns the sum of the two parameters
@@ -195,26 +214,26 @@ product of all positive integers less than or equal to that number.
 For example, the factorial of 5 (denoted as 5!) is calculated as 5 x 4 x 3 x 2 x 1, which equals 120.
 */
 
-func factorial() int {
-	var result int = 1
-	// assign the reader object to reader variable
-	// reading data from input source like the terminal or command line
-	reader := bufio.NewReader(os.Stdin)
+// func factorial() int {
+// 	var result int = 1
+// 	// assign the reader object to reader variable
+// 	// reading data from input source like the terminal or command line
+// 	reader := bufio.NewReader(os.Stdin)
 
-	fmt.Print("Enter a number: ")
-	numInput, _ := reader.ReadString('\n')
+// 	fmt.Print("Enter a number: ")
+// 	numInput, _ := reader.ReadString('\n')
 
-	parsedInt, err := strconv.Atoi(strings.TrimSpace(numInput))
+// 	parsedInt, err := strconv.Atoi(strings.TrimSpace(numInput))
 
-	if err != nil {
-		fmt.Println(err)
-	} else {
-		for i := parsedInt; i > 0; i-- {
-			result *= i
-		}
-	}
+// 	if err != nil {
+// 		fmt.Println(err)
+// 	} else {
+// 		for i := parsedInt; i > 0; i-- {
+// 			result *= i
+// 		}
+// 	}
 
-	fmt.Println("Result: ", result)
+// 	fmt.Println("Result: ", result)
 
-	return result
-}
+// 	return result
+// }
