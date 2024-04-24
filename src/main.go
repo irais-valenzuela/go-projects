@@ -1,11 +1,11 @@
 package main
 
 import (
-	// "bufio"
+	"bufio"
 	"fmt"
-	// "os"
-	// "strconv"
-	// "strings"
+	"os"
+	"strconv"
+	"strings"
 )
 
 func main() {
@@ -241,7 +241,11 @@ func main() {
 	// fmt.Println("students", students)
 
 	// letterFrequency("Hello")
-	fmt.Println("GRADES", makeGradesMap())
+	// fmt.Println("GRADES", makeGradesMap())
+	cart := make(map[string]float64)
+
+	addToShoppingCart(cart)
+	fmt.Print("You're updated cart: ", len(cart))
 
 }
 
@@ -355,6 +359,7 @@ Counting Letters:
 // 	fmt.Println("Populated map: ", hashMap)
 // }
 
+// ALGO 5
 /*
 Student Grades:
 
@@ -366,11 +371,57 @@ different subjects and print the overall grade for each student.
 
 */
 
-func makeGradesMap() map[string]map[string]float64 {
-	grades := map[string]map[string]float64{
-		"Dylan": {"Psychology": 98.5, "Art": 100.0},
-		"Rambo": {"Music": 100.0, "Psychology": 98.5},
-		"Chris": {"Music": 98.5, "Art": 100.0},
+// func makeGradesMap() map[string]map[string]float64 {
+// 	grades := map[string]map[string]float64{
+// 		"Dylan": {"Psychology": 98.5, "Art": 100.0},
+// 		"Rambo": {"Music": 100.0, "Psychology": 98.5},
+// 		"Chris": {"Music": 98.5, "Art": 100.0},
+// 	}
+// 	return grades
+// }
+
+// ALGO 6
+/*
+4. **Shopping Cart:**
+   Create a program that simulates a shopping cart. Use a map to
+   store items (strings) as keys and their prices (floats) as
+   values. Allow the user to add items to the cart, remove items,
+   and calculate the total price of all items in the cart.
+*/
+
+/*
+  make a map using make since i dont know what i'll be adding yet
+
+  make the items be the keys -will be strings anf the prices be
+  values  - will be float64s
+
+  use bufio to create a reader and osStdin to read terminal input
+    write logic to add that to new item to map
+	return remaining items
+
+  make another func to recieve a item to remove and remove it then
+  return remaining items
+
+  make another function to look through values in map and cal
+  total of all items
+  return total
+
+
+*/
+
+func addToShoppingCart(cart map[string]float64) map[string]float64 {
+	reader := bufio.NewReader(os.Stdin)
+	fmt.Print("Enter item name and price omit the $ pls: ")
+	input, _ := reader.ReadString('\n')
+	input = strings.TrimSpace(input)
+	parts := strings.Split(input, " ")
+
+	floatVal, err := strconv.ParseFloat(parts[1], 64)
+	if err != nil {
+		fmt.Println("Error parsing float:", err)
+	} else {
+		cart[parts[0]] = floatVal
 	}
-	return grades
+
+	return cart
 }
