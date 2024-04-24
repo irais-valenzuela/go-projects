@@ -196,49 +196,52 @@ func main() {
 
 	*/
 
-	// 1
+	// // 1
 
-	ages := make(map[string]int)
+	// ages := make(map[string]int)
 
-	ages["Dylan"] = 25
-	ages["Chris"] = 27
-	ages["James"] = 28
+	// ages["Dylan"] = 25
+	// ages["Chris"] = 27
+	// ages["James"] = 28
 
-	fmt.Println("ages map", ages)
+	// fmt.Println("ages map", ages)
 
-	// 2
+	// // 2
 
-	fmt.Println("Dylan is", ages["Dylan"], "years old.")
-	fmt.Println("Should print 0 since key doesn't exist", ages["Irais"])
+	// fmt.Println("Dylan is", ages["Dylan"], "years old.")
+	// fmt.Println("Should print 0 since key doesn't exist", ages["Irais"])
 
-    // 3
+	// // 3
 
-	_, prs := ages["Dylan"]
+	// _, prs := ages["Dylan"]
 
-	if prs {
-	  fmt.Println("Exists")
-	} else {
-	  fmt.Println("Doesn't Exist")
-	}
+	// if prs {
+	//   fmt.Println("Exists")
+	// } else {
+	//   fmt.Println("Doesn't Exist")
+	// }
 
-	//4 
-	delete(ages, "Chris")
-	fmt.Println("deleted", ages)
+	// //4
+	// delete(ages, "Chris")
+	// fmt.Println("deleted", ages)
 
-	//5 
-	fmt.Println("2?", len(ages))
+	// //5
+	// fmt.Println("2?", len(ages))
 
-	//6 
-	clear(ages)
+	// //6
+	// clear(ages)
 
-	fmt.Println("should be empty", ages)
+	// fmt.Println("should be empty", ages)
 
-	// 7
-	grades := map[string]float64{"Comp Sci": 97.5, "Psychology": 98.5, "Entomology": 96.5}
-	students := map[string]int{"Chris": 12, "Dylan": 11}
+	// // 7
+	// grades := map[string]float64{"Comp Sci": 97.5, "Psychology": 98.5, "Entomology": 96.5}
+	// students := map[string]int{"Chris": 12, "Dylan": 11}
 
-	fmt.Println("grades: ", grades)
-	fmt.Println("students", students)
+	// fmt.Println("grades: ", grades)
+	// fmt.Println("students", students)
+
+	// letterFrequency("Hello")
+	fmt.Println("GRADES", makeGradesMap())
 
 }
 
@@ -316,20 +319,20 @@ For example, the factorial of 5 (denoted as 5!) is calculated as 5 x 4 x 3 x 2 x
 // 	return result
 // }
 
-// Algo 4 
+// Algo 4
 /*
 Counting Letters:
-  Write a program that takes a string as input and counts the frequency of 
-  each letter in the string. Store the letter frequencies in a map and print 
+  Write a program that takes a string as input and counts the frequency of
+  each letter in the string. Store the letter frequencies in a map and print
   the map.
 */
 
 /*
   make a map using make method
 
-  use a loop to go thru string 
+  use a loop to go thru string
 
-  at each iteration check if key exists uf it does 
+  at each iteration check if key exists uf it does
   update key frequency aka add 1 (use prs)
 
   if not make it an entity add the letter as key and value as 1
@@ -337,17 +340,37 @@ Counting Letters:
   print the map
 */
 
-func letterFrequency(str string) {
-	hashMap := make(map[string]int)
+// func letterFrequency(str string) {
+// 	hashMap := make(map[string]int)
 
-	for i := 0; i < len(str); i++ {
-	  currentChar := string(str[i])
-	  _, prs := hashMap[currentChar]
-	  if prs {
-        hashMap[currentChar] += 1
-	  } else {
-		hashMap[currentChar] = 1
-	  }
+// 	for i := 0; i < len(str); i++ {
+// 		currentChar := string(str[i])
+// 		_, prs := hashMap[currentChar]
+// 		if prs {
+// 			hashMap[currentChar] += 1
+// 		} else {
+// 			hashMap[currentChar] = 1
+// 		}
+// 	}
+// 	fmt.Println("Populated map: ", hashMap)
+// }
+
+/*
+Student Grades:
+
+Create a program that stores the grades of students in different
+subjects. Use a map where the keys are student names (strings)
+and the values are maps of subject grades (strings) to numerical
+scores (floats). Add grades for at least three students in
+different subjects and print the overall grade for each student.
+
+*/
+
+func makeGradesMap() map[string]map[string]float64 {
+	grades := map[string]map[string]float64{
+		"Dylan": {"Psychology": 98.5, "Art": 100.0},
+		"Rambo": {"Music": 100.0, "Psychology": 98.5},
+		"Chris": {"Music": 98.5, "Art": 100.0},
 	}
-	fmt.Println("Populated map: ", hashMap)
+	return grades
 }
