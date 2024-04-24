@@ -233,6 +233,13 @@ func main() {
 
 	fmt.Println("should be empty", ages)
 
+	// 7
+	grades := map[string]float64{"Comp Sci": 97.5, "Psychology": 98.5, "Entomology": 96.5}
+	students := map[string]int{"Chris": 12, "Dylan": 11}
+
+	fmt.Println("grades: ", grades)
+	fmt.Println("students", students)
+
 }
 
 // **ALGO 1**
