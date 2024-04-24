@@ -315,3 +315,39 @@ For example, the factorial of 5 (denoted as 5!) is calculated as 5 x 4 x 3 x 2 x
 
 // 	return result
 // }
+
+// Algo 4 
+/*
+Counting Letters:
+  Write a program that takes a string as input and counts the frequency of 
+  each letter in the string. Store the letter frequencies in a map and print 
+  the map.
+*/
+
+/*
+  make a map using make method
+
+  use a loop to go thru string 
+
+  at each iteration check if key exists uf it does 
+  update key frequency aka add 1 (use prs)
+
+  if not make it an entity add the letter as key and value as 1
+
+  print the map
+*/
+
+func letterFrequency(str string) {
+	hashMap := make(map[string]int)
+
+	for i := 0; i < len(str); i++ {
+	  currentChar := string(str[i])
+	  _, prs := hashMap[currentChar]
+	  if prs {
+        hashMap[currentChar] += 1
+	  } else {
+		hashMap[currentChar] = 1
+	  }
+	}
+	fmt.Println("Populated map: ", hashMap)
+}
