@@ -242,10 +242,11 @@ func main() {
 
 	// letterFrequency("Hello")
 	// fmt.Println("GRADES", makeGradesMap())
-	cart := make(map[string]float64)
+	cart := map[string]float64{"Apples": 0.57, "Olipop": 1.50, "Bananas": 1.00, "Kefir": 3.47}
 
 	addToShoppingCart(cart)
-	fmt.Print("You're updated cart: ", len(cart))
+	removeCartItem(cart, "Apples")
+	fmt.Print("You're updated cart: ", cart)
 
 }
 
@@ -425,3 +426,10 @@ func addToShoppingCart(cart map[string]float64) map[string]float64 {
 
 	return cart
 }
+
+func removeCartItem(cart map[string]float64, itemToRemove string) map[string]float64 {
+  delete(cart, itemToRemove)
+
+  return cart
+}
+
