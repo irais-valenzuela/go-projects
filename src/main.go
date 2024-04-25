@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"math"
 	"os"
 	"strconv"
 	"strings"
@@ -246,6 +247,7 @@ func main() {
 
 	addToShoppingCart(cart)
 	removeCartItem(cart, "Apples")
+	fmt.Println("Your grand total is: ", calculateCartTotal(cart))
 	fmt.Print("You're updated cart: ", cart)
 
 }
@@ -428,8 +430,26 @@ func addToShoppingCart(cart map[string]float64) map[string]float64 {
 }
 
 func removeCartItem(cart map[string]float64, itemToRemove string) map[string]float64 {
-  delete(cart, itemToRemove)
+	delete(cart, itemToRemove)
 
-  return cart
+	return cart
 }
 
+func truncateToTwoDecimalPlaces(num float64) float64 {
+	return math.Trunc(num*100) / 100
+}
+
+func calculateCartTotal(cart map[string]float64) interface{} {
+
+	var total float64 = 0.00
+	
+	if len(cart) > 0 {
+		for _, value := range cart {
+			total += value
+		}
+		return truncateToTwoDecimalPlaces(total)
+	} else {
+		return "Shopping cart is empty."
+	}
+
+}
