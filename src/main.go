@@ -250,8 +250,9 @@ func main() {
 	// fmt.Println("Your grand total is: ", calculateCartTotal(cart))
 	// fmt.Print("You're updated cart: ", cart)
 	// fmt.Println("Should return 3", rangePractice())
-	fmt.Println(moreRangePractice())
+	// fmt.Println(moreRangePractice())
 	// fmt.Println(stringRangePractice("West Hollywood Library"))
+	fmt.Println(multipleReturnsFunc("West", "Hollywood"))
 
 }
 
@@ -500,4 +501,10 @@ func stringRangePractice(stringToIterateOver string) map[int]string {
 		}
 	}
 	return stringRecord
+}
+
+// make a func that returns multiple strings
+
+func multipleReturnsFunc(string1 string, string2 string) (string, string) {
+	return string1, string2
 }
