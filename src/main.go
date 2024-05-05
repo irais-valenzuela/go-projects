@@ -249,7 +249,8 @@ func main() {
 	// removeCartItem(cart, "Apples")
 	// fmt.Println("Your grand total is: ", calculateCartTotal(cart))
 	// fmt.Print("You're updated cart: ", cart)
-	fmt.Println("Should return 3", rangePractice())
+	// fmt.Println("Should return 3", rangePractice())
+	fmt.Println(moreRangePractice())
 
 }
 
@@ -443,7 +444,7 @@ func truncateToTwoDecimalPlaces(num float64) float64 {
 func calculateCartTotal(cart map[string]float64) interface{} {
 
 	var total float64 = 0.00
-	
+
 	if len(cart) > 0 {
 		for _, value := range cart {
 			total += value
@@ -455,17 +456,39 @@ func calculateCartTotal(cart map[string]float64) interface{} {
 
 }
 
-// make a func that iterates over an array and using range and print the number 3
+// var array = [5]int{1, 2, 3, 4, 5}
 
-var array = [5]int{1, 2, 3, 4, 5}
+// func rangePractice() int {
+//   var answer int
+//   for _, elem := range array {
+// 	if elem == 3 {
+// 		answer = elem
+// 	}
+//   }
+//  return answer
+// }
 
-func rangePractice() int {
-  var answer int 
-  for _, elem := range array {
-	if elem == 3 {
-		answer = elem
+// make a func that iterates over an map and using range and push all the keys into and array and all the values return length of the two arrays
+
+func moreRangePractice() int {
+
+	namesAndAgesMap := map[string]int{"Yuri": 8, "Bingo": 1, "Lassie": 1, "Cokita": 3}
+
+	// initializing slices
+	keyArray := make([]string, 0, 10)
+	valueArray := make([]int, 0, 10)
+	totalLengthOfBothSlices := 0
+
+	for key, value := range namesAndAgesMap {
+		keyArray = append(keyArray, key)
+		valueArray = append(valueArray, value)
+		totalLengthOfBothSlices += 2
 	}
-  }
- return answer 
+
+	fmt.Println("Key slice: ", keyArray)
+	fmt.Println("Value slice: ", valueArray)
+	fmt.Println("Total length of both slices is ", totalLengthOfBothSlices)
+
+	return totalLengthOfBothSlices
 
 }
