@@ -250,7 +250,8 @@ func main() {
 	// fmt.Println("Your grand total is: ", calculateCartTotal(cart))
 	// fmt.Print("You're updated cart: ", cart)
 	// fmt.Println("Should return 3", rangePractice())
-	fmt.Println(moreRangePractice())
+	// fmt.Println(moreRangePractice())
+	fmt.Println(stringRangePractice("West Hollywood Library"))
 
 }
 
@@ -491,4 +492,18 @@ func moreRangePractice() int {
 
 	return totalLengthOfBothSlices
 
+}
+
+// make a func that iterates over a string using range and create a map that stores index of letters as key and letter as value of that key. Return the map
+
+func stringRangePractice(stringToIterateOver string) map[int]string {
+	stringRecord := make(map[int]string)
+
+	for i, elem := range stringToIterateOver {
+		if string(elem) != " " {
+		  stringRecord[i] = string(elem)
+
+		}
+	}
+	return stringRecord
 }
