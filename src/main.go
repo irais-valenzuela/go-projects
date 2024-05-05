@@ -252,7 +252,8 @@ func main() {
 	// fmt.Println("Should return 3", rangePractice())
 	// fmt.Println(moreRangePractice())
 	// fmt.Println(stringRangePractice("West Hollywood Library"))
-	fmt.Println(multipleReturnsFunc("West", "Hollywood"))
+	// fmt.Println(multipleReturnsFunc("West", "Hollywood"))
+	fmt.Println(myVariadicFunc(9, 9, 9))
 
 }
 
@@ -470,7 +471,7 @@ func calculateCartTotal(cart map[string]float64) interface{} {
 //  return answer
 // }
 
-// make a func that iterates over an map and using range and push all the keys into and array and all the values return both arrays 
+// make a func that iterates over an map and using range and push all the keys into and array and all the values return both arrays
 
 func moreRangePractice() ([]string, []int) {
 
@@ -496,7 +497,7 @@ func stringRangePractice(stringToIterateOver string) map[int]string {
 
 	for i, elem := range stringToIterateOver {
 		if string(elem) != " " {
-		  stringRecord[i] = string(elem)
+			stringRecord[i] = string(elem)
 
 		}
 	}
@@ -507,4 +508,15 @@ func stringRangePractice(stringToIterateOver string) map[int]string {
 
 func multipleReturnsFunc(string1 string, string2 string) (string, string) {
 	return string1, string2
+}
+
+// make a variadic function
+func myVariadicFunc(nums ...int) int {
+
+	sum := 0
+	for _, num := range nums {
+		sum += num
+	}
+
+	return sum
 }
