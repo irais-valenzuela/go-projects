@@ -250,8 +250,8 @@ func main() {
 	// fmt.Println("Your grand total is: ", calculateCartTotal(cart))
 	// fmt.Print("You're updated cart: ", cart)
 	// fmt.Println("Should return 3", rangePractice())
-	// fmt.Println(moreRangePractice())
-	fmt.Println(stringRangePractice("West Hollywood Library"))
+	fmt.Println(moreRangePractice())
+	// fmt.Println(stringRangePractice("West Hollywood Library"))
 
 }
 
@@ -469,28 +469,22 @@ func calculateCartTotal(cart map[string]float64) interface{} {
 //  return answer
 // }
 
-// make a func that iterates over an map and using range and push all the keys into and array and all the values return length of the two arrays
+// make a func that iterates over an map and using range and push all the keys into and array and all the values return both arrays 
 
-func moreRangePractice() int {
+func moreRangePractice() ([]string, []int) {
 
 	namesAndAgesMap := map[string]int{"Yuri": 8, "Bingo": 1, "Lassie": 1, "Cokita": 3}
 
 	// initializing slices
 	keyArray := make([]string, 0, 10)
 	valueArray := make([]int, 0, 10)
-	totalLengthOfBothSlices := 0
 
 	for key, value := range namesAndAgesMap {
 		keyArray = append(keyArray, key)
 		valueArray = append(valueArray, value)
-		totalLengthOfBothSlices += 2
 	}
 
-	fmt.Println("Key slice: ", keyArray)
-	fmt.Println("Value slice: ", valueArray)
-	fmt.Println("Total length of both slices is ", totalLengthOfBothSlices)
-
-	return totalLengthOfBothSlices
+	return keyArray, valueArray
 
 }
 
