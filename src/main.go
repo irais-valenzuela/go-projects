@@ -243,12 +243,13 @@ func main() {
 
 	// letterFrequency("Hello")
 	// fmt.Println("GRADES", makeGradesMap())
-	cart := map[string]float64{"Apples": 0.57, "Olipop": 1.50, "Bananas": 1.00, "Kefir": 3.47}
+	// cart := map[string]float64{"Apples": 0.57, "Olipop": 1.50, "Bananas": 1.00, "Kefir": 3.47}
 
-	addToShoppingCart(cart)
-	removeCartItem(cart, "Apples")
-	fmt.Println("Your grand total is: ", calculateCartTotal(cart))
-	fmt.Print("You're updated cart: ", cart)
+	// addToShoppingCart(cart)
+	// removeCartItem(cart, "Apples")
+	// fmt.Println("Your grand total is: ", calculateCartTotal(cart))
+	// fmt.Print("You're updated cart: ", cart)
+	fmt.Println("Should return 3", rangePractice())
 
 }
 
@@ -451,5 +452,20 @@ func calculateCartTotal(cart map[string]float64) interface{} {
 	} else {
 		return "Shopping cart is empty."
 	}
+
+}
+
+// make a func that iterates over an array and using range and print the number 3
+
+var array = [5]int{1, 2, 3, 4, 5}
+
+func rangePractice() int {
+  var answer int 
+  for _, elem := range array {
+	if elem == 3 {
+		answer = elem
+	}
+  }
+ return answer 
 
 }
