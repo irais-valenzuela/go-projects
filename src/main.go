@@ -253,7 +253,17 @@ func main() {
 	// fmt.Println(moreRangePractice())
 	// fmt.Println(stringRangePractice("West Hollywood Library"))
 	// fmt.Println(multipleReturnsFunc("West", "Hollywood"))
-	fmt.Println(myVariadicFunc(9, 9, 9))
+	// fmt.Println(myVariadicFunc(9, 9, 9))
+	// closures
+
+	// result := intSeq()
+
+	// fmt.Println(result())
+	// fmt.Println(result())
+	// fmt.Println(result())
+	// fmt.Println("Should be 4", result())
+	fmt.Println("should be 4", lengthOfLastWord("   fly me   to   the moon  "))
+	fmt.Println("should be 5", lengthOfLastWord("hello world"))
 
 }
 
@@ -520,3 +530,28 @@ func myVariadicFunc(nums ...int) int {
 
 	return sum
 }
+
+// closure
+func intSeq() func() int {
+	i := 0
+	return func() int {
+		i++
+		return i
+	}
+}
+
+// time and space: o(n)
+func lengthOfLastWord(s string) int {
+	arr := strings.Fields(s)
+	lastElemPosition := len(arr) - 1
+	result := len(arr[lastElemPosition])
+
+	return result
+}
+
+/*
+  APPROACH
+
+  make a array remove the white spaces
+  return the last elem
+*/
