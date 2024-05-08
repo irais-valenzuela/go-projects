@@ -262,8 +262,10 @@ func main() {
 	// fmt.Println(result())
 	// fmt.Println(result())
 	// fmt.Println("Should be 4", result())
-	fmt.Println("should be 4", lengthOfLastWord("   fly me   to   the moon  "))
-	fmt.Println("should be 5", lengthOfLastWord("hello world"))
+	// fmt.Println("should be 4", lengthOfLastWord("   fly me   to   the moon  "))
+	// fmt.Println("should be 5", lengthOfLastWord("hello world"))
+	fmt.Println(isPalindrome(121))
+	fmt.Println(isPalindrome(123))
 
 }
 
@@ -555,3 +557,26 @@ func lengthOfLastWord(s string) int {
   make a array remove the white spaces
   return the last elem
 */
+
+
+func isPalindrome(x int) bool {
+	numStr := strconv.Itoa(x) 
+	arr := []string{} 
+	
+	for i := len(numStr) - 1; i >= 0; i-- {
+	  arr = append(arr, string(numStr[i]))
+	}
+  
+	arrStr := strings.Join(arr, "") 
+  
+	return numStr == arrStr
+  }
+  
+  /*
+	APPROACH
+	remember that x is an int and mine will be strings
+	turn into string 
+	iterate through string start at the end append strings to an array
+	compare the number turned into a string and array turned into string
+	if they are true return true else false
+  */
