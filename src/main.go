@@ -264,8 +264,10 @@ func main() {
 	// fmt.Println("Should be 4", result())
 	// fmt.Println("should be 4", lengthOfLastWord("   fly me   to   the moon  "))
 	// fmt.Println("should be 5", lengthOfLastWord("hello world"))
-	fmt.Println(isPalindrome(121))
-	fmt.Println(isPalindrome(123))
+	// fmt.Println(isPalindrome(121))
+	// fmt.Println(isPalindrome(123))
+	arr := []int{1, 3, 4, 5, 7}
+	fmt.Println("should be 4", binarySearchAlgo(arr, 7))
 
 }
 
@@ -558,25 +560,45 @@ func lengthOfLastWord(s string) int {
   return the last elem
 */
 
-
 func isPalindrome(x int) bool {
-	numStr := strconv.Itoa(x) 
-	arr := []string{} 
-	
+	numStr := strconv.Itoa(x)
+	arr := []string{}
+
 	for i := len(numStr) - 1; i >= 0; i-- {
-	  arr = append(arr, string(numStr[i]))
+		arr = append(arr, string(numStr[i]))
 	}
-  
-	arrStr := strings.Join(arr, "") 
-  
+
+	arrStr := strings.Join(arr, "")
+
 	return numStr == arrStr
-  }
-  
-  /*
+}
+
+/*
 	APPROACH
 	remember that x is an int and mine will be strings
-	turn into string 
+	turn into string
 	iterate through string start at the end append strings to an array
 	compare the number turned into a string and array turned into string
 	if they are true return true else false
-  */
+*/
+
+
+func binarySearchAlgo(nums []int, target int) int {
+	left := 0
+	right := len(nums) - 1
+
+	for left <= right {
+		midIdx := (left + right) / 2
+		if nums[midIdx] == target {
+			return midIdx
+		} else if target < nums[midIdx] {
+			right = midIdx - 1
+		} else {
+			left = midIdx + 1
+		}
+
+	}
+
+	return -1
+}
+
