@@ -266,9 +266,11 @@ func main() {
 	// fmt.Println("should be 5", lengthOfLastWord("hello world"))
 	// fmt.Println(isPalindrome(121))
 	// fmt.Println(isPalindrome(123))
-	arr := []int{1, 3, 4, 5, 7}
+	// arr := []int{1, 3, 4, 5, 7}
 	// fmt.Println("should be 4", binarySearchAlgo(arr, 7))
-	fmt.Println("should be false", containsDuplicate(arr))
+	// fmt.Println("should be false", containsDuplicate(arr))
+	fmt.Println("should be false", isAnagram("Meltt", "Melt"))
+	fmt.Println("should be true", isAnagram("Dylan Gardner", "rendraG nalyD"))
 
 }
 
@@ -626,3 +628,40 @@ func containsDuplicate(nums []int) bool {
 	if we make it out of loop then we didnt find any dups so return false 
   
   */
+
+
+func isAnagram(s string, t string) bool {
+	sMap := make(map[string]int)
+  
+	if len(s) != len(t) {
+	  return false
+	} 
+	
+	for i := 0; i < len(s); i++ {
+	  curChar := string(s[i])
+	  if _, key := sMap[curChar]; key {
+		  sMap[curChar] += 1
+	  } else if !key {
+		sMap[curChar] = 1
+	  }
+	}
+  
+	for i:=0; i < len(t); i++ {
+	  curChar := string(t[i])
+	  if _, key := sMap[curChar]; key {
+		sMap[curChar] -= 1
+	  }
+	}
+	
+	var flag bool
+  
+	for _, value := range sMap {
+	  if value == 0 {
+		flag = true
+	  } else if value > 0 {
+		  return false
+	  }
+	}
+  
+   return flag
+  }
