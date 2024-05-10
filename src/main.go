@@ -585,7 +585,6 @@ func isPalindrome(x int) bool {
 	if they are true return true else false
 */
 
-
 func binarySearchAlgo(nums []int, target int) int {
 	left := 0
 	right := len(nums) - 1
@@ -607,61 +606,61 @@ func binarySearchAlgo(nums []int, target int) int {
 
 // o(n) space and time
 func containsDuplicate(nums []int) bool {
-	frequencyMap := make(map[int]int) 
-  
+	frequencyMap := make(map[int]int)
+
 	for _, value := range nums {
-  
-	  if  _, key := frequencyMap[value]; key {
-		  return true
-	  } else if !key {
-		  frequencyMap[value] = 1
-	  }
+
+		if _, key := frequencyMap[value]; key {
+			return true
+		} else if !key {
+			frequencyMap[value] = 1
+		}
 	}
 	return false
-  }
-  /*
-  
+}
+
+/*
+
 	make a empty map (map will hold frequency of ints)
 	make a loop to go through elements and create map at the same time
-	if we need to increment frequency for any at anytime we will return true 
-  
-	if we make it out of loop then we didnt find any dups so return false 
-  
-  */
+	if we need to increment frequency for any at anytime we will return true
 
+	if we make it out of loop then we didnt find any dups so return false
+
+*/
 
 func isAnagram(s string, t string) bool {
 	sMap := make(map[string]int)
-  
+
 	if len(s) != len(t) {
-	  return false
-	} 
-	
+		return false
+	}
+
 	for i := 0; i < len(s); i++ {
-	  curChar := string(s[i])
-	  if _, key := sMap[curChar]; key {
-		  sMap[curChar] += 1
-	  } else if !key {
-		sMap[curChar] = 1
-	  }
+		curChar := string(s[i])
+		if _, key := sMap[curChar]; key {
+			sMap[curChar] += 1
+		} else if !key {
+			sMap[curChar] = 1
+		}
 	}
-  
-	for i:=0; i < len(t); i++ {
-	  curChar := string(t[i])
-	  if _, key := sMap[curChar]; key {
-		sMap[curChar] -= 1
-	  }
+
+	for i := 0; i < len(t); i++ {
+		curChar := string(t[i])
+		if _, key := sMap[curChar]; key {
+			sMap[curChar] -= 1
+		}
 	}
-	
+
 	var flag bool
-  
+
 	for _, value := range sMap {
-	  if value == 0 {
-		flag = true
-	  } else if value > 0 {
-		  return false
-	  }
+		if value == 0 {
+			flag = true
+		} else if value > 0 {
+			return false
+		}
 	}
-  
-   return flag
-  }
+
+	return flag
+}
