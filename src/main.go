@@ -274,13 +274,36 @@ func main() {
 	// myStr := "Hello"
 	// fmt.Println(iterateMyStr(myStr))
 
-	value := 8
-	fmt.Println("init value", value)
-    regularFunction(value)  
-	fmt.Println("value after call to regularFunc should be 8", value)
-	pointerFuncExample(&value)
-	fmt.Println("should be 10", value)
-	fmt.Println("should be memory address", &value)
+	// value := 8
+	// fmt.Println("init value", value)
+	// regularFunction(value)
+	// fmt.Println("value after call to regularFunc should be 8", value)
+	// pointerFuncExample(&value)
+	// fmt.Println("should be 10", value)
+	// fmt.Println("should be memory address", &value)
+
+	fmt.Println(makeBook("The Go Programming Language", "Yuri", 120, 2024))
+}
+
+/*
+	  Title (string)
+      Author (string)
+      Pages (int)
+      PublishedYear (int)
+
+*/
+
+type book struct {
+	title  string
+	author string
+	pages  int
+	year   int
+}
+
+func makeBook(title string, author string, pages int, year int) *book {
+	newBook := book{title: title, author: author, pages: pages, year: year  }
+	// returning a pointer???
+	return &newBook
 }
 
 // **ALGO 1**
@@ -680,8 +703,8 @@ func containsDuplicate(nums []int) bool {
 //   for i := 0; i < len(str); i++ {
 //     fmt.Println("byte", str[i])
 //   }
-  
-//   // iterates through runes 
+
+//   // iterates through runes
 //   for _, value := range str {
 // 	fmt.Println("rune", value)
 //   }
@@ -690,7 +713,7 @@ func containsDuplicate(nums []int) bool {
 
 // pointers in GO
 func regularFunction(val int) {
-  val = 0
+	val = 0
 }
 
 func pointerFuncExample(val *int) {
