@@ -269,9 +269,18 @@ func main() {
 	// arr := []int{1, 3, 4, 5, 7}
 	// fmt.Println("should be 4", binarySearchAlgo(arr, 7))
 	// fmt.Println("should be false", containsDuplicate(arr))
-	fmt.Println("should be false", isAnagram("Meltt", "Melt"))
-	fmt.Println("should be true", isAnagram("Dylan Gardner", "rendraG nalyD"))
+	// fmt.Println("should be false", isAnagram("Meltt", "Melt"))
+	// fmt.Println("should be true", isAnagram("Dylan Gardner", "rendraG nalyD"))
+	// myStr := "Hello"
+	// fmt.Println(iterateMyStr(myStr))
 
+	value := 8
+	fmt.Println("init value", value)
+    regularFunction(value)  
+	fmt.Println("value after call to regularFunc should be 8", value)
+	pointerFuncExample(&value)
+	fmt.Println("should be 10", value)
+	fmt.Println("should be memory address", &value)
 }
 
 // **ALGO 1**
@@ -629,38 +638,61 @@ func containsDuplicate(nums []int) bool {
 
 */
 
-func isAnagram(s string, t string) bool {
-	sMap := make(map[string]int)
+// func isAnagram(s string, t string) bool {
+// 	sMap := make(map[string]int)
 
-	if len(s) != len(t) {
-		return false
-	}
+// 	if len(s) != len(t) {
+// 		return false
+// 	}
 
-	for i := 0; i < len(s); i++ {
-		curChar := string(s[i])
-		if _, key := sMap[curChar]; key {
-			sMap[curChar] += 1
-		} else if !key {
-			sMap[curChar] = 1
-		}
-	}
+// 	for i := 0; i < len(s); i++ {
+// 		curChar := string(s[i])
+// 		if _, key := sMap[curChar]; key {
+// 			sMap[curChar] += 1
+// 		} else if !key {
+// 			sMap[curChar] = 1
+// 		}
+// 	}
 
-	for i := 0; i < len(t); i++ {
-		curChar := string(t[i])
-		if _, key := sMap[curChar]; key {
-			sMap[curChar] -= 1
-		}
-	}
+// 	for i := 0; i < len(t); i++ {
+// 		curChar := string(t[i])
+// 		if _, key := sMap[curChar]; key {
+// 			sMap[curChar] -= 1
+// 		}
+// 	}
 
-	var flag bool
+// 	var flag bool
 
-	for _, value := range sMap {
-		if value == 0 {
-			flag = true
-		} else if value > 0 {
-			return false
-		}
-	}
+// 	for _, value := range sMap {
+// 		if value == 0 {
+// 			flag = true
+// 		} else if value > 0 {
+// 			return false
+// 		}
+// 	}
 
-	return flag
+// 	return flag
+// }
+
+// func iterateMyStr(str string) bool {
+
+//   // iterates through bytes
+//   for i := 0; i < len(str); i++ {
+//     fmt.Println("byte", str[i])
+//   }
+  
+//   // iterates through runes 
+//   for _, value := range str {
+// 	fmt.Println("rune", value)
+//   }
+//   return true
+// }
+
+// pointers in GO
+func regularFunction(val int) {
+  val = 0
+}
+
+func pointerFuncExample(val *int) {
+	*val += 2
 }
