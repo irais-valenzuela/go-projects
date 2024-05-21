@@ -282,8 +282,10 @@ func main() {
 	// fmt.Println("should be memory address", &value)
 
 	// fmt.Println(makeBook("The Go Programming Language", "Yuri", 120, 2024))
-	digits := []int{1, 2, 3, 4}
-    fmt.Print("should be [1, 2, 3, 5]", plusOne(digits))
+	// digits := []int{1, 2, 3, 4}
+	// fmt.Print("should be [1, 2, 3, 5]", plusOne(digits))
+	potentialPairs := []string{"cd", "ac", "dc", "ca", "zz", "lh"}
+	fmt.Println("should be 2", maximumNumberOfStringPairs(potentialPairs))
 }
 
 /*
@@ -305,7 +307,6 @@ func makeBook(title string, author string, pages int, year int) *book {
 	newBook := book{title: title, author: author, pages: pages, year: year}
 	return &newBook
 }
-
 
 // **ALGO 1**
 
@@ -750,3 +751,30 @@ func plusOne(digits []int) []int {
 
  outisde return a slice with one in the beginning for the instance where we have only one 9
 */
+
+func maximumNumberOfStringPairs(words []string) int {
+	pairsMap := make(map[string]string)
+	totalPairs := 0
+
+	for i := 0; i < len(words); i++ {
+		_, key := pairsMap[reverseCurrentWord(string(words[i]))]
+		if key {
+			totalPairs += 1
+		} else {
+			pairsMap[string(words[i])] = string(words[i])
+		}
+	}
+
+	return totalPairs
+}
+
+func reverseCurrentWord(word string) string {
+	result := []string{}
+
+	for i := len(word) - 1; i >= 0; i-- {
+		result = append(result, string(word[i]))
+	}
+
+	return strings.Join(result, "")
+
+}
