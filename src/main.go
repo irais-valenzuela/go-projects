@@ -10,7 +10,6 @@ import (
 )
 
 func main() {
-
 	// printing
 
 	// 	fmt.Println("Hello World!")
@@ -282,7 +281,9 @@ func main() {
 	// fmt.Println("should be 10", value)
 	// fmt.Println("should be memory address", &value)
 
-	fmt.Println(makeBook("The Go Programming Language", "Yuri", 120, 2024))
+	// fmt.Println(makeBook("The Go Programming Language", "Yuri", 120, 2024))
+	digits := []int{1, 2, 3, 4}
+    fmt.Print("should be [1, 2, 3, 5]", plusOne(digits))
 }
 
 /*
@@ -301,10 +302,10 @@ type book struct {
 }
 
 func makeBook(title string, author string, pages int, year int) *book {
-	newBook := book{title: title, author: author, pages: pages, year: year  }
-	// returning a pointer???
+	newBook := book{title: title, author: author, pages: pages, year: year}
 	return &newBook
 }
+
 
 // **ALGO 1**
 
@@ -719,3 +720,33 @@ func regularFunction(val int) {
 func pointerFuncExample(val *int) {
 	*val += 2
 }
+
+func plusOne(digits []int) []int {
+	result := []int{1}
+
+	for i := len(digits) - 1; i >= 0; i-- {
+		if digits[i] == 9 {
+			digits[i] = 0
+		} else {
+			digits[i] += 1
+			return digits
+		}
+	}
+
+	result = append(result, digits...)
+
+	return result
+
+}
+
+/*
+ make a loop to start at the end of digits
+ when we come across a 9
+ turn it into a zero
+
+ else if the number is not nine
+ then increment by one and return digits
+
+
+ outisde return a slice with one in the beginning for the instance where we have only one 9
+*/
