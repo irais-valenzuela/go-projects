@@ -272,7 +272,6 @@ func main() {
 	// fmt.Println("should be true", isAnagram("Dylan Gardner", "rendraG nalyD"))
 	// myStr := "Hello"
 	// fmt.Println(iterateMyStr(myStr))
-	
 
 	// value := 8
 	// fmt.Println("init value", value)
@@ -287,8 +286,7 @@ func main() {
 	// potentialPairs := []string{"cd", "ac", "dc", "ca", "zz", "lh"}
 	// fmt.Println("should be 2", maximumNumberOfStringPairs(potentialPairs))
 
-
-    // names := []string{"Mary", "John", "Emma"}
+	// names := []string{"Mary", "John", "Emma"}
 	//  heights := []int{180, 165, 170}
 	// fmt.Println(sortPeople(names, heights))
 	// fmt.Println(createRectangle(12.0, 12.0))
@@ -297,7 +295,6 @@ func main() {
 	makeBook("Educated", "Tara Something", 400, 2013)
 	fmt.Println("collection after adding", collection)
 }
-
 
 /*
 	  Title (string)
@@ -318,12 +315,12 @@ func main() {
 */
 
 type rectangle struct {
-  length float64
-  width float64
+	length float64
+	width  float64
 }
 
 func (r rectangle) area() float64 {
-  return r.width * r.length
+	return r.width * r.length
 }
 
 func (r *rectangle) perimeter() float64 {
@@ -331,12 +328,13 @@ func (r *rectangle) perimeter() float64 {
 }
 
 func createRectangle(length float64, width float64) rectangle {
-  newRectangle := rectangle{length: length, width: width}
-  newRectangle.length = newRectangle.area()
-  newRectangle.width = newRectangle.perimeter()
-  return newRectangle
+	newRectangle := rectangle{length: length, width: width}
+	newRectangle.length = newRectangle.area()
+	newRectangle.width = newRectangle.perimeter()
+	return newRectangle
 
 }
+
 /*
 
 Struct Definition
@@ -356,25 +354,24 @@ DeleteBook: Deletes a book from the collection.
 
 */
 
-
 type book struct {
-  title string
-  author string
-  pages int
-  publishedYear int
+	title         string
+	author        string
+	pages         int
+	publishedYear int
 }
 
 var collection = []book{}
 
-func makeBook(title string, author string, pages int, publishedYear int) book{
+func makeBook(title string, author string, pages int, publishedYear int) book {
 	newBook := book{title: title, author: author, pages: pages, publishedYear: publishedYear}
 	collection = newBook.addBook(collection)
-	
+
 	return newBook
 }
 
 func (b book) addBook(collection []book) []book {
-  return append(collection, b)
+	return append(collection, b)
 }
 
 // **ALGO 1**
@@ -792,7 +789,7 @@ func pointerFuncExample(val *int) {
 }
 
 func plusOne(digits []int) []int {
-	result := []int{1} 
+	result := []int{1}
 
 	for i := len(digits) - 1; i >= 0; i-- {
 		if digits[i] == 9 {
