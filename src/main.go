@@ -284,8 +284,11 @@ func main() {
 	// fmt.Println(makeBook("The Go Programming Language", "Yuri", 120, 2024))
 	// digits := []int{1, 2, 3, 4}
 	// fmt.Print("should be [1, 2, 3, 5]", plusOne(digits))
-	potentialPairs := []string{"cd", "ac", "dc", "ca", "zz", "lh"}
-	fmt.Println("should be 2", maximumNumberOfStringPairs(potentialPairs))
+	// potentialPairs := []string{"cd", "ac", "dc", "ca", "zz", "lh"}
+	// fmt.Println("should be 2", maximumNumberOfStringPairs(potentialPairs))
+	names := []string{"Mary","John","Emma"}
+	heights := []int{180,165,170}
+	fmt.Println(sortPeople(names, heights))
 }
 
 /*
@@ -777,4 +780,20 @@ func reverseCurrentWord(word string) string {
 
 	return strings.Join(result, "")
 
+}
+
+func sortPeople(names []string, heights []int) []string {
+	for i := 0; i < len(heights); i++ {
+		for j := i + 1; j < len(heights); j++ {
+			if heights[i] < heights[j] {
+				tempForHeights := heights[i]
+				tempForNames := names[i]
+				heights[i] = heights[j]
+				heights[j] = tempForHeights
+				names[i] = names[j]
+				names[j] = tempForNames
+			}
+		}
+	}
+	return names
 }
