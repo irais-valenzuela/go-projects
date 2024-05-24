@@ -272,6 +272,7 @@ func main() {
 	// fmt.Println("should be true", isAnagram("Dylan Gardner", "rendraG nalyD"))
 	// myStr := "Hello"
 	// fmt.Println(iterateMyStr(myStr))
+	
 
 	// value := 8
 	// fmt.Println("init value", value)
@@ -281,15 +282,22 @@ func main() {
 	// fmt.Println("should be 10", value)
 	// fmt.Println("should be memory address", &value)
 
-	// fmt.Println(makeBook("The Go Programming Language", "Yuri", 120, 2024))
 	// digits := []int{1, 2, 3, 4}
 	// fmt.Print("should be [1, 2, 3, 5]", plusOne(digits))
 	// potentialPairs := []string{"cd", "ac", "dc", "ca", "zz", "lh"}
 	// fmt.Println("should be 2", maximumNumberOfStringPairs(potentialPairs))
-	names := []string{"Mary","John","Emma"}
-	heights := []int{180,165,170}
-	fmt.Println(sortPeople(names, heights))
+
+
+    // names := []string{"Mary", "John", "Emma"}
+	//  heights := []int{180, 165, 170}
+	// fmt.Println(sortPeople(names, heights))
+	// fmt.Println(createRectangle(12.0, 12.0))
+
+	makeBook("The How of Happiness", "Sonja Lyubomirsky", 384, 2010)
+	makeBook("Educated", "Tara Something", 400, 2013)
+	fmt.Println("collection after adding", collection)
 }
+
 
 /*
 	  Title (string)
@@ -299,16 +307,74 @@ func main() {
 
 */
 
-type book struct {
-	title  string
-	author string
-	pages  int
-	year   int
+/*
+  STRUCTS
+
+    Create a struct named Rectangle with fields length and width, both of type float64. Define two methods for the Rectangle struct:
+
+	area() method that calculates and returns the area of the rectangle.
+	perimeter() method that calculates and returns the perimeter of the rectangle.
+	Then, write a main function to create a Rectangle instance, initialize its fields, and call both the area() and perimeter() methods to display the results.
+*/
+
+type rectangle struct {
+  length float64
+  width float64
 }
 
-func makeBook(title string, author string, pages int, year int) *book {
-	newBook := book{title: title, author: author, pages: pages, year: year}
-	return &newBook
+func (r rectangle) area() float64 {
+  return r.width * r.length
+}
+
+func (r *rectangle) perimeter() float64 {
+	return 2*r.width + 2*r.length
+}
+
+func createRectangle(length float64, width float64) rectangle {
+  newRectangle := rectangle{length: length, width: width}
+  newRectangle.length = newRectangle.area()
+  newRectangle.width = newRectangle.perimeter()
+  return newRectangle
+
+}
+/*
+
+Struct Definition
+First, define a struct to represent a book. Each book should have the following fields:
+
+Title (string)
+Author (string)
+Pages (int)
+PublishedYear (int)
+
+Functions to Implement
+AddBook: Adds a new book to the collection.
+ListBooks: Lists all books in the collection.
+FindBookByTitle: Finds a book by its title.
+UpdateBook: Updates the details of a book.
+DeleteBook: Deletes a book from the collection.
+
+*/
+
+
+type book struct {
+  title string
+  author string
+  pages int
+  publishedYear int
+}
+
+var collection = []book{}
+
+func makeBook(title string, author string, pages int, publishedYear int) book{
+	newBook := book{title: title, author: author, pages: pages, publishedYear: publishedYear}
+	collection = newBook.addBook(collection)
+	
+	return newBook
+}
+
+func (b book) addBook(collection []book) []book {
+  return append(collection, b)
 }
 
 // **ALGO 1**
@@ -726,7 +792,7 @@ func pointerFuncExample(val *int) {
 }
 
 func plusOne(digits []int) []int {
-	result := []int{1}
+	result := []int{1} 
 
 	for i := len(digits) - 1; i >= 0; i-- {
 		if digits[i] == 9 {
