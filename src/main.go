@@ -293,7 +293,7 @@ func main() {
 
 	makeBook("The How of Happiness", "Sonja Lyubomirsky", 384, 2010)
 	makeBook("Educated", "Tara Something", 400, 2013)
-	fmt.Println("collection after adding", collection)
+	makeBook("Homebody", "Rupi Kaur", 188, 2020)
 }
 
 /*
@@ -346,9 +346,6 @@ Pages (int)
 PublishedYear (int)
 
 Functions to Implement
-AddBook: Adds a new book to the collection.
-ListBooks: Lists all books in the collection.
-FindBookByTitle: Finds a book by its title.
 UpdateBook: Updates the details of a book.
 DeleteBook: Deletes a book from the collection.
 
@@ -363,16 +360,26 @@ type book struct {
 
 var collection = []book{}
 
+// constructor function 
 func makeBook(title string, author string, pages int, publishedYear int) book {
 	newBook := book{title: title, author: author, pages: pages, publishedYear: publishedYear}
 	collection = newBook.addBook(collection)
+	fmt.Println(newBook.listBook(collection))
 
 	return newBook
 }
 
+// AddBook: Adds a new book to the collection.
 func (b book) addBook(collection []book) []book {
 	return append(collection, b)
 }
+// ListBooks: Lists all books in the collection.
+func (b book) listBook (collection []book) [] book {
+  return collection
+}
+
+// FindBookByTitle: Finds a book by its title.
+
 
 // **ALGO 1**
 
