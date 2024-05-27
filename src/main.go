@@ -364,7 +364,10 @@ var collection = []book{}
 func makeBook(title string, author string, pages int, publishedYear int) book {
 	newBook := book{title: title, author: author, pages: pages, publishedYear: publishedYear}
 	collection = newBook.addBook(collection)
-	fmt.Println(newBook.listBook(collection))
+	newBook.listBook(collection)
+	book := newBook.findBookByTitle(collection, "Homebody")
+	fmt.Println(book)
+
 
 	return newBook
 }
@@ -374,12 +377,21 @@ func (b book) addBook(collection []book) []book {
 	return append(collection, b)
 }
 // ListBooks: Lists all books in the collection.
-func (b book) listBook (collection []book) [] book {
+func (b book) listBook (collection []book) []book {
   return collection
 }
 
 // FindBookByTitle: Finds a book by its title.
-
+func (b book) findBookByTitle(collection []book, title string) book {
+  var response book
+  for i:= 0; i < len(collection); i++ {
+    if collection[i].title == title {
+	  response = collection[i]
+	  break
+	} 
+  }
+  return response
+}
 
 // **ALGO 1**
 
