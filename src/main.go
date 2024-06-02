@@ -294,6 +294,15 @@ func main() {
 	makeBook("The How of Happiness", "Sonja Lyubomirsky", 384, 2010)
 	makeBook("Educated", "Tara Something", 400, 2013)
 	makeBook("Homebody", "Rupi Kaur", 188, 2020)
+	fmt.Println(newRule(1, "Kitkat"))
+	rulesSlice := makeRulesSlice()
+	
+	rulesMap := makeRulesMap(rulesSlice)
+	
+	fmt.Println("rulesMap", rulesMap)
+	
+	// fmt.Println(filterRulesById(rulesSlice, 1))
+	fmt.Println("requested rules", allRulesById(rulesMap, 2))
 }
 
 /*
@@ -879,3 +888,70 @@ func sortPeople(names []string, heights []int) []string {
 	}
 	return names
 }
+
+
+type rule struct {
+	id int
+	name string
+  }
+  
+  func newRule(id int, name string) rule {
+	r := rule{id: id, name: name}
+	return r
+  }
+  
+  
+  func makeRulesSlice() []rule {
+	rulesSlice := []rule{
+	  {id: 1, name: "Yuri"},
+	  {id: 1, name: "Bingo"},
+	  {id: 2, name: "Lassie"},
+	  {id: 3, name: "Mikey"},
+	  {id: 1, name: "Cokita"},
+	  {id: 4, name: "Chiquiz"},
+	  {id: 1, name: "Kirk"},
+	  {id: 4, name: "Kitty"},
+	  {id: 1, name: "Cosita"},
+	  {id: 3, name: "Journey"},
+	  {id: 1, name: "Fluffy"},
+	  {id: 2, name: "Bella"},
+	}
+	
+	return rulesSlice
+  }
+  
+  // write a func that recives an id field and returns all rules (structs) that belong to that field
+  
+  func filterRulesById(rulesSlice []rule, id int) []string {
+	filteredByIdSlice := make([]string, 0)
+	
+	for i := 0; i < len(rulesSlice); i++ {
+	  if rulesSlice[i].id == id {
+		filteredByIdSlice = append(filteredByIdSlice, rulesSlice[i].name)
+	  }
+	}
+	
+	return filteredByIdSlice
+  }
+  
+  
+  // make map of rules for easier look up 
+  
+  func makeRulesMap(rulesSlice []rule) map[int][]string {
+	rulesMap := make(map[int][]string)
+	for i := 0; i < len(rulesSlice); i++ {
+	   rulesMap[rulesSlice[i].id] = append(rulesMap[rulesSlice[i].id], rulesSlice[i].name)
+	}
+	  
+	return rulesMap
+  }
+  
+  // return rules based on id 
+  
+  func allRulesById(rulesMap map[int][]string, id int) []string {
+	return rulesMap[id]
+  }
+  
+  
+  
+  
