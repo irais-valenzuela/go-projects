@@ -296,11 +296,11 @@ func main() {
 	makeBook("Homebody", "Rupi Kaur", 188, 2020)
 	fmt.Println(newRule(1, "Kitkat"))
 	rulesSlice := makeRulesSlice()
-	
+
 	rulesMap := makeRulesMap(rulesSlice)
-	
+
 	fmt.Println("rulesMap", rulesMap)
-	
+
 	// fmt.Println(filterRulesById(rulesSlice, 1))
 	fmt.Println("requested rules", allRulesById(rulesMap, 2))
 }
@@ -369,14 +369,13 @@ type book struct {
 
 var collection = []book{}
 
-// constructor function 
+// constructor function
 func makeBook(title string, author string, pages int, publishedYear int) book {
 	newBook := book{title: title, author: author, pages: pages, publishedYear: publishedYear}
 	collection = newBook.addBook(collection)
 	newBook.listBook(collection)
 	book := newBook.findBookByTitle(collection, "Homebody")
 	fmt.Println(book)
-
 
 	return newBook
 }
@@ -385,21 +384,22 @@ func makeBook(title string, author string, pages int, publishedYear int) book {
 func (b book) addBook(collection []book) []book {
 	return append(collection, b)
 }
+
 // ListBooks: Lists all books in the collection.
-func (b book) listBook (collection []book) []book {
-  return collection
+func (b book) listBook(collection []book) []book {
+	return collection
 }
 
 // FindBookByTitle: Finds a book by its title.
 func (b book) findBookByTitle(collection []book, title string) book {
-  var response book
-  for i:= 0; i < len(collection); i++ {
-    if collection[i].title == title {
-	  response = collection[i]
-	  break
-	} 
-  }
-  return response
+	var response book
+	for i := 0; i < len(collection); i++ {
+		if collection[i].title == title {
+			response = collection[i]
+			break
+		}
+	}
+	return response
 }
 
 // **ALGO 1**
@@ -889,69 +889,62 @@ func sortPeople(names []string, heights []int) []string {
 	return names
 }
 
-
 type rule struct {
-	id int
+	id   int
 	name string
-  }
-  
-  func newRule(id int, name string) rule {
+}
+
+func newRule(id int, name string) rule {
 	r := rule{id: id, name: name}
 	return r
-  }
-  
-  
-  func makeRulesSlice() []rule {
+}
+
+func makeRulesSlice() []rule {
 	rulesSlice := []rule{
-	  {id: 1, name: "Yuri"},
-	  {id: 1, name: "Bingo"},
-	  {id: 2, name: "Lassie"},
-	  {id: 3, name: "Mikey"},
-	  {id: 1, name: "Cokita"},
-	  {id: 4, name: "Chiquiz"},
-	  {id: 1, name: "Kirk"},
-	  {id: 4, name: "Kitty"},
-	  {id: 1, name: "Cosita"},
-	  {id: 3, name: "Journey"},
-	  {id: 1, name: "Fluffy"},
-	  {id: 2, name: "Bella"},
+		{id: 1, name: "Yuri"},
+		{id: 1, name: "Bingo"},
+		{id: 2, name: "Lassie"},
+		{id: 3, name: "Mikey"},
+		{id: 1, name: "Cokita"},
+		{id: 4, name: "Chiquiz"},
+		{id: 1, name: "Kirk"},
+		{id: 4, name: "Kitty"},
+		{id: 1, name: "Cosita"},
+		{id: 3, name: "Journey"},
+		{id: 1, name: "Fluffy"},
+		{id: 2, name: "Bella"},
 	}
-	
+
 	return rulesSlice
-  }
-  
-  // write a func that recives an id field and returns all rules (structs) that belong to that field
-  
-  func filterRulesById(rulesSlice []rule, id int) []string {
+}
+
+// write a func that recives an id field and returns all rules (structs) that belong to that field
+
+func filterRulesById(rulesSlice []rule, id int) []string {
 	filteredByIdSlice := make([]string, 0)
-	
+
 	for i := 0; i < len(rulesSlice); i++ {
-	  if rulesSlice[i].id == id {
-		filteredByIdSlice = append(filteredByIdSlice, rulesSlice[i].name)
-	  }
+		if rulesSlice[i].id == id {
+			filteredByIdSlice = append(filteredByIdSlice, rulesSlice[i].name)
+		}
 	}
-	
+
 	return filteredByIdSlice
-  }
-  
-  
-  // make map of rules for easier look up 
-  
-  func makeRulesMap(rulesSlice []rule) map[int][]string {
+}
+
+// make map of rules for easier look up
+
+func makeRulesMap(rulesSlice []rule) map[int][]string {
 	rulesMap := make(map[int][]string)
 	for i := 0; i < len(rulesSlice); i++ {
-	   rulesMap[rulesSlice[i].id] = append(rulesMap[rulesSlice[i].id], rulesSlice[i].name)
+		rulesMap[rulesSlice[i].id] = append(rulesMap[rulesSlice[i].id], rulesSlice[i].name)
 	}
-	  
+
 	return rulesMap
-  }
-  
-  // return rules based on id 
-  
-  func allRulesById(rulesMap map[int][]string, id int) []string {
+}
+
+// return rules based on id
+
+func allRulesById(rulesMap map[int][]string, id int) []string {
 	return rulesMap[id]
-  }
-  
-  
-  
-  
+}
